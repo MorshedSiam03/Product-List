@@ -38,17 +38,22 @@ function ProductCard({ product }) {
       </div>
       <div
         onClick={handleCartToggle}
-        className="cursor-pointer rounded-md bg-white text-[0.8125rem] font-medium leading-5 text-slate-700 ring-1 ring-slate-700/10 hover:ring-1 hover:bg-slate-50 hover:text-slate-900 items-center text-center mb-3 mx-3 flex-1"
+        className={`cursor-pointer rounded-md text-[0.8125rem] font-medium leading-5 mb-3 mx-3 flex-1 ring-1 
+    ${
+      isInCart
+        ? " text-red-600 ring-red-400 hover:bg-red-200"
+        : "bg-white text-slate-700 ring-slate-700/10 hover:bg-green-200 hover:text-green-800"
+    }`}
       >
         <div className="flex px-3 py-2 justify-center">
           {isInCart ? (
             <>
-              <RemoveFromCart />
+              <RemoveFromCart className="mr-2 " />
               Remove From Cart
             </>
           ) : (
             <>
-              <AddToCart />
+              <AddToCart className="mr-2" />
               Add To Cart
             </>
           )}
